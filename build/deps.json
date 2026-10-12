@@ -1,5 +1,7 @@
 {
-  "mod": { "version": "0.1.0" },
+  "mod": {
+    "version": "0.1.0"
+  },
   "melonloader": {
     "version": "0.7.3",
     "license": "Apache-2.0",
@@ -9,7 +11,7 @@
     "version": "3.2.1",
     "license": "MIT",
     "repo": "ifBars/S1API",
-    "url": ""
+    "url": "https://github.com/ifBars/S1API/releases/download/v3.2.1/S1API-Forked-3.2.1.zip"
   },
   "nvorbis": {
     "version": "0.10.5",

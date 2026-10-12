@@ -127,10 +127,13 @@ def main():
     if s1_tmp.exists():
         shutil.rmtree(s1_tmp)
     extract(s1, s1_tmp)
-    plugins = next((p for p in s1_tmp.rglob("Plugins") if p.is_dir()), None)
-    if plugins is None:
-        sys.exit("S1API zip has no Plugins folder; check its layout")
-    shutil.copytree(plugins, stage / "Plugins", dirs_exist_ok=True)
+    for sub in ("Mods", "Plugins"):  # S1API 3.2.1: Mods holds the library, Plugins the loader shim
+        src = next((p for p in s1_tmp.rglob(sub) if p.is_dir()), None)
+        if src is None:
+            sys.exit(f"S1API zip has no {sub} folder; check its layout")
+        shutil.copytree(src, stage / sub, dirs_exist_ok=True)
+    if not (stage / "Mods" / "S1API.Il2Cpp.MelonLoader.dll").exists():
+        sys.exit("S1API zip has no Mods/S1API.Il2Cpp.MelonLoader.dll")
     (stage / "Mods").mkdir(exist_ok=True)
     shutil.copy2(out / "BrewingPoint.dll", stage / "Mods" / "BrewingPoint.dll")
     (stage / "UserLibs").mkdir(exist_ok=True)

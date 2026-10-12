@@ -103,6 +103,7 @@ namespace UnityEngine
     public class Renderer : Component
     {
         public bool enabled { get; set; }
+        public bool forceRenderingOff { get; set; }
         public Bounds bounds => default;
         public Material sharedMaterial { get; set; } = null!;
         public Il2CppReferenceArray<Material> sharedMaterials { get; set; } = null!;

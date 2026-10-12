@@ -40,7 +40,7 @@ Journal for whoever continues this, human or agent. Read this before touching co
 |---|---|---|
 | Schedule I | 0.4.7 IL2CPP (default branch) | player's Steam install |
 | MelonLoader | 0.7.3 | github.com/LavaGang/MelonLoader releases (`MelonLoader.x64.zip`) |
-| S1API | 3.2.1 | github.com/ifBars/S1API releases (Plugins folder) / NuGet `S1API.Forked` for compiling |
+| S1API | 3.2.1 | `S1API-Forked-3.2.1.zip` (both Mods and Plugins) / NuGet `S1API.Forked` for compiling |
 | NVorbis | 0.10.5 | NuGet |
 | Minecraft: Java | 1.14+ (any launcher) | player's install |
 

@@ -46,6 +46,21 @@ mix with Energizing.
   or CurseForge), so its game files and sounds are on the PC. Melty checks you have it and tells the mod where it is.
   Otherwise the mod looks in the usual launcher folders, or you can set `minecraft_dir=` in `UserData/BrewingPoint.cfg`.
 
+## Install and play (Windows, by hand, until it's on Melty)
+
+1. Steam: Schedule I → Properties → Betas → **None** (the default, IL2CPP branch).
+2. Install **MelonLoader 0.7.3**: run the MelonLoader installer and choose Schedule I and v0.7.3, or extract
+   `MelonLoader.x64.zip` so that `version.dll` and `MelonLoader\` sit next to `Schedule I.exe`.
+3. Launch Schedule I once (online). Wait for the MelonLoader console to finish and the main menu to appear, then quit.
+4. Install **S1API 3.2.1**: from `S1API-Forked-3.2.1.zip`, copy **both** `Mods` and `Plugins` into the game folder.
+5. Launch Minecraft: Java Edition (1.14 or newer) once, to the main menu.
+6. Build and install Brewing Point (needs the .NET 10 SDK), with Schedule I closed:
+   `dotnet build src\BrewingPoint -c Release -p:DeployToGame=true -p:GameDir="C:\Program Files (x86)\Steam\steamapps\common\Schedule I"`
+   (no backslash at the end of the path).
+7. Optional: create an empty file `UserData\BrewingPoint.test` to be handed a stand, ingredients and cash on load.
+   Delete it afterwards.
+8. Launch from Steam, load a save, and check `UserData\BrewingPoint\checks.log`: every line should say `ok`.
+
 ## Playing together
 
 Works in Schedule I co-op, up to 4 players. The host loads a save and invites friends through Steam, and friends

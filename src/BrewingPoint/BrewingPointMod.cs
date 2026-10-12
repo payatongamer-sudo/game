@@ -59,8 +59,6 @@ namespace BrewingPoint
             BuildEvents.OnBuildableItemInitialized += BrewingStands.OnBuildableInitialized;
         }
 
-        public override void OnSceneWasInitialized(int buildIndex, string sceneName) => BrewingStands.Reset();
-
         public override void OnUpdate()
         {
             if (Minecraft == null || Time.unscaledTime < _nextPoll)

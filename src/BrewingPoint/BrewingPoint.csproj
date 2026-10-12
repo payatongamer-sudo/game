@@ -37,6 +37,13 @@
     <Reference Include="$(GameDir)/MelonLoader/Il2CppAssemblies/*.dll" Private="false" />
   </ItemGroup>
 
+  <Target Name="CheckGameDir" BeforeTargets="ResolveAssemblyReferences">
+    <Error Condition="!Exists('$(GameDir)')" Text="Schedule I folder not found: $(GameDir). Pass -p:GameDir=&quot;...\Schedule I&quot; (no backslash at the end)." />
+    <Error Condition="!Exists('$(GameDir)/MelonLoader/net6/MelonLoader.dll')" Text="MelonLoader 0.7.3 is not installed in $(GameDir)." />
+    <Error Condition="!Exists('$(GameDir)/MelonLoader/Il2CppAssemblies/Assembly-CSharp.dll')" Text="Launch Schedule I once with MelonLoader (to the main menu), then build again." />
+    <Warning Condition="!Exists('$(GameDir)/Mods/S1API.Il2Cpp.MelonLoader.dll')" Text="S1API is not installed: copy the Mods and Plugins folders from S1API-Forked-3.2.1.zip into the game folder." />
+  </Target>
+
   <Target Name="DeployToGame" AfterTargets="Build" Condition="'$(DeployToGame)' == 'true'">
     <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(GameDir)/Mods" />
     <Copy SourceFiles="$(OutDir)NVorbis.dll" DestinationFolder="$(GameDir)/UserLibs" />

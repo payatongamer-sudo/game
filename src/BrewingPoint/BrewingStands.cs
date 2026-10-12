@@ -132,6 +132,7 @@ namespace BrewingPoint
                         template = r.sharedMaterial;
                 }
                 r.enabled = false;
+                r.forceRenderingOff = true; // stays hidden if the game re-enables the renderer
             }
             template ??= FallbackMaterial();
 
