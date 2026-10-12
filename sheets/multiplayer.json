@@ -1,0 +1,17 @@
+{
+  "sheet": "multiplayer",
+  "about": "Co-op through Schedule I's own Steam co-op. Everything the mod adds is registered identically on every peer; the Brewing Stand is a networked Mixing Station, so brews sync through the game.",
+  "columns": {
+    "id": "Row id",
+    "value": "Setting",
+    "how": "How it works / where it comes from"
+  },
+  "rows": [
+    { "id": "mode", "value": "co-op", "how": "Schedule I co-op (FishNet over Steam P2P)" },
+    { "id": "max_players", "value": 4, "how": "Schedule I's own lobby limit" },
+    { "id": "host", "value": "Continue or load a save, then invite friends from the in-game lobby or Steam overlay", "how": "Game's own lobby" },
+    { "id": "join", "value": "Accept the Steam invite (or Join Game from the Steam friends list)", "how": "Game's own lobby; no address to type, Steam relays so no port forwarding" },
+    { "id": "every_peer_needs", "value": "The Brewing Point release and their own Minecraft: Java Edition", "how": "Each player's Brewing Stand and icons are built from their own Minecraft copy; S1API rejects mismatched mod content before joining" },
+    { "id": "melty_connect", "value": "none", "how": "Joining goes through Steam invites; leave recipe.multiplayer.connect out until a two-PC join test proves an automatic route" }
+  ]
+}

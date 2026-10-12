@@ -1,0 +1,125 @@
+{
+  "sheet": "hooks",
+  "about": "Every place the mod touches Schedule I. Names come from mods that compile against the 0.4.7 IL2CPP game (S1API 3.2.1, PocketPlug); 'verified_in_game' turns true only after a run on a PC with the game.",
+  "columns": {
+    "id": "Hook id",
+    "target": "S1API event or Type.Method in Il2CppScheduleOne",
+    "kind": "s1api_event | harmony_prefix | harmony_postfix | melon_update | field_write | log_write",
+    "runs_on": "every_peer | local_player",
+    "purpose": "What the mod does there",
+    "uses": "Sheet rows it reads (sheet:id)",
+    "name_source": "Where the target's name was confirmed",
+    "verified_in_game": "true once seen working in the running game"
+  },
+  "rows": [
+    {
+      "id": "register_content",
+      "target": "S1API.Lifecycle.GameLifecycle.OnPreLoad",
+      "kind": "s1api_event",
+      "runs_on": "every_peer",
+      "purpose": "Read Minecraft files, register custom effects, ingredients, the Brewing Stand, reactions and shop listings",
+      "uses": [
+        "ingredients:*",
+        "effects:*",
+        "reactions:*",
+        "stations:mc_brewing_stand",
+        "shops:*"
+      ],
+      "name_source": "S1API docs/mixing-ingredients.md",
+      "verified_in_game": false
+    },
+    {
+      "id": "stand_visuals",
+      "target": "S1API.Building.BuildEvents.OnBuildableItemInitialized",
+      "kind": "s1api_event",
+      "runs_on": "every_peer",
+      "purpose": "When a placed station's item is the Brewing Stand: hide the mixing station's meshes, build the Minecraft model, set 3 bottles and brew time",
+      "uses": [
+        "stations:mc_brewing_stand",
+        "models:*"
+      ],
+      "name_source": "S1API Internal/Patches/BuildingPatches.cs",
+      "verified_in_game": false
+    },
+    {
+      "id": "gate_instruction",
+      "target": "MixingStationInterface.UpdateInstruction",
+      "kind": "harmony_postfix",
+      "runs_on": "local_player",
+      "purpose": "Show why a brew can't start (needs Nether Wart first / brew this at a Brewing Stand / stand only takes Minecraft ingredients)",
+      "uses": [
+        "stations:mc_brewing_stand",
+        "ingredients:*"
+      ],
+      "name_source": "PocketPlug src/Features/MixStepsUi.cs",
+      "verified_in_game": false
+    },
+    {
+      "id": "gate_begin_button",
+      "target": "MixingStationInterface.UpdateBeginButton",
+      "kind": "harmony_postfix",
+      "runs_on": "local_player",
+      "purpose": "Disable Begin while the brew breaks a brewing rule",
+      "uses": [
+        "stations:mc_brewing_stand",
+        "ingredients:*"
+      ],
+      "name_source": "PocketPlug src/Features/MixStepsUi.cs",
+      "verified_in_game": false
+    },
+    {
+      "id": "gate_begin_pressed",
+      "target": "MixingStationInterface.BeginButtonPressed",
+      "kind": "harmony_prefix",
+      "runs_on": "local_player",
+      "purpose": "Refuse to start a brew that breaks a brewing rule",
+      "uses": [
+        "stations:mc_brewing_stand",
+        "ingredients:*"
+      ],
+      "name_source": "PocketPlug src/Features/MixStepsUi.cs",
+      "verified_in_game": false
+    },
+    {
+      "id": "brew_tick",
+      "target": "BrewingPointMod.OnUpdate (MelonMod, every 0.25 s over placed Brewing Stands)",
+      "kind": "melon_update",
+      "runs_on": "every_peer",
+      "purpose": "Fill or empty the Minecraft bottles from the station slots and play the brew sound from the player's Minecraft when MixingStation.IsMixingDone turns true",
+      "uses": [
+        "stations:mc_brewing_stand",
+        "models:*",
+        "sounds:brew"
+      ],
+      "name_source": "MelonLoader MelonMod.OnUpdate; MixingStation.IsMixingDone/ProductSlot/OutputSlot from PocketPlug ReadyAlerts.cs, MixSteps.cs",
+      "verified_in_game": false
+    },
+    {
+      "id": "station_limits",
+      "target": "MixingStation.MaxMixQuantity / MixTimePerItem / stationConfiguration.StartThrehold",
+      "kind": "field_write",
+      "runs_on": "every_peer",
+      "purpose": "Brewing Stand takes 3 bottles per brew at 7 in-game minutes each; employee start threshold resized to match",
+      "uses": [
+        "stations:mc_brewing_stand"
+      ],
+      "name_source": "PocketPlug src/Features/StationLimits.cs",
+      "verified_in_game": false
+    },
+    {
+      "id": "brew_test_log",
+      "target": "UserData/BrewingPoint/checks.log",
+      "kind": "log_write",
+      "runs_on": "every_peer",
+      "purpose": "Write 'BrewingPoint check: <name> ok|fail' lines after load so a test run shows the mashup loaded its Minecraft content and registered everything",
+      "uses": [
+        "ingredients:*",
+        "stations:mc_brewing_stand",
+        "models:*",
+        "sounds:brew"
+      ],
+      "name_source": "this mod",
+      "verified_in_game": false
+    }
+  ]
+}

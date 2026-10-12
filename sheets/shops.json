@@ -1,0 +1,13 @@
+{
+  "sheet": "shops",
+  "about": "Where the mashup's items are sold. Shops are found by a vanilla item they already sell (S1API ShopManager.FindShopsByItem), so both Gas-Marts get the ingredients without hard-coding shop names.",
+  "columns": {
+    "id": "Shop group id",
+    "anchor_item": "Vanilla item ID: every shop that sells it gets this group's items",
+    "player_name": "What players call the shop(s)"
+  },
+  "rows": [
+    { "id": "gasmart", "anchor_item": "cuke", "player_name": "Gas-Mart (Central and West)" },
+    { "id": "hardware", "anchor_item": "mixingstation", "player_name": "Dan's Hardware" }
+  ]
+}

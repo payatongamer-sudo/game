@@ -1,0 +1,19 @@
+{
+  "sheet": "models",
+  "about": "Minecraft block models read from the player's client jar and turned into Unity meshes at runtime (elements, face UVs, texture variables, element rotation).",
+  "columns": {
+    "id": "Model id used by the other sheets",
+    "jar_path": "Path of the model JSON inside the player's Minecraft client jar",
+    "part": "base | bottle | empty (how the stand uses it)",
+    "slot": "Bottle slot 0-2, or 'none' for the base"
+  },
+  "rows": [
+    { "id": "brewing_stand", "jar_path": "assets/minecraft/models/block/brewing_stand.json", "part": "base", "slot": "none" },
+    { "id": "brewing_stand_bottle0", "jar_path": "assets/minecraft/models/block/brewing_stand_bottle0.json", "part": "bottle", "slot": 0 },
+    { "id": "brewing_stand_bottle1", "jar_path": "assets/minecraft/models/block/brewing_stand_bottle1.json", "part": "bottle", "slot": 1 },
+    { "id": "brewing_stand_bottle2", "jar_path": "assets/minecraft/models/block/brewing_stand_bottle2.json", "part": "bottle", "slot": 2 },
+    { "id": "brewing_stand_empty0", "jar_path": "assets/minecraft/models/block/brewing_stand_empty0.json", "part": "empty", "slot": 0 },
+    { "id": "brewing_stand_empty1", "jar_path": "assets/minecraft/models/block/brewing_stand_empty1.json", "part": "empty", "slot": 1 },
+    { "id": "brewing_stand_empty2", "jar_path": "assets/minecraft/models/block/brewing_stand_empty2.json", "part": "empty", "slot": 2 }
+  ]
+}

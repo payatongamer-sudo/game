@@ -1,0 +1,16 @@
+{
+  "sheet": "minecraft_install",
+  "about": "How the mod finds the player's own Minecraft: Java Edition files. Melty passes the companion folder ({game:minecraft-java}); the layouts below are tried inside it, then the usual locations.",
+  "columns": {
+    "id": "Layout id",
+    "launcher": "Which launcher produces this layout",
+    "client_jar": "Glob for the client jar relative to the root",
+    "asset_indexes": "Folder of asset index JSONs relative to the root",
+    "asset_objects": "Folder of hashed asset objects relative to the root",
+    "root_hint": "How the root is reached from the folder Melty passes or from the default location"
+  },
+  "rows": [
+    { "id": "official", "launcher": "Minecraft Launcher (Mojang/Microsoft)", "client_jar": "versions/*/*.jar", "asset_indexes": "assets/indexes", "asset_objects": "assets/objects", "root_hint": "%APPDATA%/.minecraft or the folder passed in" },
+    { "id": "prism", "launcher": "Prism Launcher / MultiMC (Melty installs Minecraft this way)", "client_jar": "libraries/com/mojang/minecraft/*/minecraft-*-client.jar", "asset_indexes": "assets/indexes", "asset_objects": "assets/objects", "root_hint": "launcher data folder; from an instance folder go up past instances/<name>" }
+  ]
+}

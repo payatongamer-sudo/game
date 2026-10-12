@@ -1,0 +1,19 @@
+{
+  "mod": { "version": "0.1.0" },
+  "melonloader": {
+    "version": "0.7.3",
+    "license": "Apache-2.0",
+    "url": "https://github.com/LavaGang/MelonLoader/releases/download/v0.7.3/MelonLoader.x64.zip"
+  },
+  "s1api": {
+    "version": "3.2.1",
+    "license": "MIT",
+    "repo": "ifBars/S1API",
+    "url": ""
+  },
+  "nvorbis": {
+    "version": "0.10.5",
+    "license": "MIT",
+    "source": "NuGet package NVorbis (copied from the mod's build output)"
+  }
+}

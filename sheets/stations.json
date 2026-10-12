@@ -1,0 +1,44 @@
+{
+  "sheet": "stations",
+  "about": "The Minecraft Brewing Stand: a Schedule I Mixing Station variant (same networked station, so co-op sync comes from the game) that looks, sounds and behaves like Minecraft's, built from the player's own Minecraft files.",
+  "columns": {
+    "id": "Schedule I item ID registered by the mod",
+    "clone_from": "Vanilla buildable cloned through S1API (keeps its networked station prefab)",
+    "mc_lang_keys": "Keys tried in the player's Minecraft en_us.json for the display name",
+    "mc_icon": "Inventory icon path inside the player's Minecraft client jar",
+    "mc_model_base": "Block model drawn as the station (models sheet id)",
+    "mc_model_bottle_full": "Block models for bottle slots 0-2 when a batch is in (models sheet ids)",
+    "mc_model_bottle_empty": "Block models for bottle slots 0-2 when empty (models sheet ids)",
+    "mc_sound_done": "Minecraft sound event played when a brew finishes (sounds sheet id)",
+    "block_scale": "Metres per Minecraft block",
+    "price": "Purchase price",
+    "max_bottles": "Units per brew (Minecraft's stand holds 3 bottles)",
+    "minutes_per_bottle": "In-game minutes per unit (1 in-game minute = 1 real second; 3 bottles ~ Minecraft's 20 s brew)",
+    "accepts_roles": "Ingredient roles the stand accepts (ingredients sheet roles)",
+    "needs_awkward_roles": "Roles that need an Awkward batch first (Minecraft: effect ingredients only work on an Awkward Potion)",
+    "vanilla_stations_reject_roles": "Roles a normal Mixing Station refuses, so Minecraft ingredients are brewed at the stand",
+    "shop": "Shop group that sells it (shops sheet id)",
+    "description": "Tooltip text written for the mashup"
+  },
+  "rows": [
+    {
+      "id": "mc_brewing_stand",
+      "clone_from": "mixingstation",
+      "mc_lang_keys": ["block.minecraft.brewing_stand", "item.minecraft.brewing_stand"],
+      "mc_icon": "assets/minecraft/textures/item/brewing_stand.png",
+      "mc_model_base": "brewing_stand",
+      "mc_model_bottle_full": ["brewing_stand_bottle0", "brewing_stand_bottle1", "brewing_stand_bottle2"],
+      "mc_model_bottle_empty": ["brewing_stand_empty0", "brewing_stand_empty1", "brewing_stand_empty2"],
+      "mc_sound_done": "brew",
+      "block_scale": 1.0,
+      "price": 350,
+      "max_bottles": 3,
+      "minutes_per_bottle": 7,
+      "accepts_roles": ["base", "effect", "corrupt"],
+      "needs_awkward_roles": ["effect"],
+      "vanilla_stations_reject_roles": ["base", "effect", "corrupt"],
+      "shop": "hardware",
+      "description": "Minecraft's Brewing Stand. Three bottles at a time: Nether Wart first, then the good stuff."
+    }
+  ]
+}

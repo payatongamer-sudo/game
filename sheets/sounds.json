@@ -1,0 +1,13 @@
+{
+  "sheet": "sounds",
+  "about": "Minecraft sounds played from the player's own Minecraft assets (sounds.json event -> asset index -> hashed .ogg in assets/objects), decoded with NVorbis.",
+  "columns": {
+    "id": "Sound id used by the other sheets",
+    "mc_event": "Sound event name in Minecraft's sounds.json",
+    "volume": "0-1 playback volume",
+    "max_distance": "Metres at which it fades out"
+  },
+  "rows": [
+    { "id": "brew", "mc_event": "block.brewing_stand.brew", "volume": 0.8, "max_distance": 16 }
+  ]
+}

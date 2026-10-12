@@ -1,0 +1,29 @@
+{
+  "sheet": "reactions",
+  "about": "Minecraft brewing rules expressed as Schedule I mixing reactions (S1API MixReactions: run after the game's own mix maths, identically on every peer).",
+  "columns": {
+    "id": "Rule id",
+    "rule": "awkward_base (an effect ingredient brewed onto an Awkward batch uses the Awkward up) | corruption (Fermented Spider Eye flips an effect)",
+    "mixer_effect": "Effect the brewed-in ingredient imprints (effects sheet id)",
+    "when_contains": "Effect that must already be in the result (effects sheet id)",
+    "result": "Effect produced (effects sheet id)",
+    "replace": "true: result replaces when_contains; false: result is added",
+    "mc_basis": "The Minecraft rule it mirrors"
+  },
+  "rows": [
+    { "id": "awkward_sugar", "rule": "awkward_base", "mixer_effect": "energizing", "when_contains": "awkward", "result": "energizing", "replace": true, "mc_basis": "Awkward + Sugar -> Swiftness (the Awkward base is used up)" },
+    { "id": "awkward_spider_eye", "rule": "awkward_base", "mixer_effect": "toxic", "when_contains": "awkward", "result": "toxic", "replace": true, "mc_basis": "Awkward + Spider Eye -> Poison" },
+    { "id": "awkward_redstone", "rule": "awkward_base", "mixer_effect": "electrifying", "when_contains": "awkward", "result": "electrifying", "replace": true, "mc_basis": "Awkward base used up by Redstone" },
+    { "id": "awkward_melon", "rule": "awkward_base", "mixer_effect": "refreshing", "when_contains": "awkward", "result": "refreshing", "replace": true, "mc_basis": "Awkward + Glistering Melon Slice -> Healing" },
+    { "id": "awkward_golden_carrot", "rule": "awkward_base", "mixer_effect": "brighteyed", "when_contains": "awkward", "result": "brighteyed", "replace": true, "mc_basis": "Awkward + Golden Carrot -> Night Vision" },
+    { "id": "awkward_gunpowder", "rule": "awkward_base", "mixer_effect": "explosive", "when_contains": "awkward", "result": "explosive", "replace": true, "mc_basis": "Awkward base used up by Gunpowder" },
+    { "id": "awkward_glowstone", "rule": "awkward_base", "mixer_effect": "glowing", "when_contains": "awkward", "result": "glowing", "replace": true, "mc_basis": "Awkward base used up by Glowstone Dust" },
+    { "id": "awkward_rabbit_foot", "rule": "awkward_base", "mixer_effect": "antigravity", "when_contains": "awkward", "result": "antigravity", "replace": true, "mc_basis": "Awkward + Rabbit's Foot -> Leaping" },
+    { "id": "awkward_fermented", "rule": "awkward_base", "mixer_effect": "weakness", "when_contains": "awkward", "result": "weakness", "replace": true, "mc_basis": "Fermented Spider Eye on a plain base -> Weakness" },
+    { "id": "corrupt_swiftness", "rule": "corruption", "mixer_effect": "weakness", "when_contains": "energizing", "result": "sedating", "replace": true, "mc_basis": "Swiftness + Fermented Spider Eye -> Slowness" },
+    { "id": "corrupt_athletic", "rule": "corruption", "mixer_effect": "weakness", "when_contains": "athletic", "result": "sedating", "replace": true, "mc_basis": "Strength-like speed + Fermented Spider Eye -> Slowness" },
+    { "id": "corrupt_leaping", "rule": "corruption", "mixer_effect": "weakness", "when_contains": "antigravity", "result": "sedating", "replace": true, "mc_basis": "Leaping + Fermented Spider Eye -> Slowness" },
+    { "id": "corrupt_night_vision", "rule": "corruption", "mixer_effect": "weakness", "when_contains": "brighteyed", "result": "sneaky", "replace": true, "mc_basis": "Night Vision + Fermented Spider Eye -> Invisibility" },
+    { "id": "corrupt_healing", "rule": "corruption", "mixer_effect": "weakness", "when_contains": "refreshing", "result": "toxic", "replace": true, "mc_basis": "Healing + Fermented Spider Eye -> Harming" }
+  ]
+}

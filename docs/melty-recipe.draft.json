@@ -1,0 +1,23 @@
+{
+  "name": "Brewing Point",
+  "version": "0.1.0",
+  "games": [
+    { "slug": "pc-schedule-i", "role": "primary" },
+    { "slug": "minecraft-java", "role": "companion" }
+  ],
+  "components": [
+    { "fileName": "BrewingPoint-*.zip", "kind": "archive", "destination": "{game}" }
+  ],
+  "launch": {
+    "kind": "game",
+    "args": ["--brewingpoint-minecraft={game:minecraft-java}"],
+    "env": { "BREWINGPOINT_MINECRAFT_DIR": "{game:minecraft-java}" }
+  },
+  "multiplayer": { "maxPlayers": 4 },
+  "test": {
+    "checks": [
+      { "log": "{game}/UserData/BrewingPoint/checks.log", "contains": "BrewingPoint check: minecraft_found ok" },
+      { "log": "{game}/UserData/BrewingPoint/checks.log", "contains": "BrewingPoint check: brew_order ok" }
+    ]
+  }
+}

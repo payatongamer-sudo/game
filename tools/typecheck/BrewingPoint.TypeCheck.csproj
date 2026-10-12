@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Compiles the real mod sources against real MelonLoader/HarmonyX/Il2CppInterop/S1API packages and
+       Unity + Schedule I signature stubs. See README.md. Output is thrown away. -->
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>BrewingPoint.TypeCheck</AssemblyName>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <CheckEolTargetFramework>false</CheckEolTargetFramework>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
+    <NoWarn>$(NoWarn);CS1701;CS1702;CS1705;MSB3277;NU1701;NU1603</NoWarn>
+    <WarningsNotAsErrors>NU1603;NU1608;NU1701</WarningsNotAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../src/BrewingPoint/**/*.cs" Exclude="../../src/BrewingPoint/obj/**;../../src/BrewingPoint/bin/**" Link="Mod/%(RecursiveDir)%(Filename)%(Extension)" />
+    <Compile Include="../../src/BrewingPoint.Core/**/*.cs" Exclude="../../src/BrewingPoint.Core/obj/**;../../src/BrewingPoint.Core/bin/**" Link="Core/%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="LavaGang.MelonLoader" Version="0.7.3" />
+    <PackageReference Include="Il2CppInterop.Runtime" Version="1.5.3" />
+    <PackageReference Include="NVorbis" Version="0.10.5" />
+    <PackageReference Include="S1API.Forked" Version="3.2.1" />
+    <ProjectReference Include="UnityStubs/UnityEngine.CoreModule.csproj" />
+    <ProjectReference Include="GameStubs/Assembly-CSharp.csproj" />
+  </ItemGroup>
+</Project>
