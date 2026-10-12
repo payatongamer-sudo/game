@@ -1,0 +1,5 @@
+{"sheet":"multiplayer","columns":["id","value"],"rows":[
+{"id":"maxPlayers","value":8},
+{"id":"host","value":"Minecraft Open-to-LAN via mod, address logged as 'Melty join address: <addr>' in melty.log"},
+{"id":"join","value":"join=<address> in melty.properties read at start"},
+{"id":"relay","value":"UNVERIFIED: needs setup_multiplayer (melty.gg blocked)"}]}

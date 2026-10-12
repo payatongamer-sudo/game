@@ -1,0 +1,6 @@
+{"sheet":"mxbikes_content","columns":["id","what","read_from","format","status"],
+"rows":[
+{"id":"bike_list","what":"every bike the player has","read_from":"{game:mx-bikes}/mods/bikes and Documents/PiBoSo/MX Bikes/mods/bikes","format":"folder or .pkz name","status":"readable (names only for encrypted stock .pkz)"},
+{"id":"bike_specs","what":"mass, engine curve, gears, rev limit","read_from":"<bike>/*.cfg, *.engn","format":"PiBoSo text cfg","status":"readable on community bikes; stock .pkz encrypted"},
+{"id":"engine_sound","what":"engine samples by rpm","read_from":"<bike>/eng.scl + SoundMods/*.wav","format":"scl + wav","status":"readable on community bikes; stock .wav encrypted"},
+{"id":"bike_model","what":"3D bike model","read_from":"<bike>/*.edf","format":"EDF (proprietary, undocumented)","status":"BLOCKED: no public spec; needs reverse engineering from sample files on a PC with MX Bikes"}]}

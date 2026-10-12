@@ -1,0 +1,4 @@
+{"sheet":"handling_modes","columns":["id","name","source","throttle","brake","lean","wheelie","step_up_blocks","crash_on_hard_landing","toggle_key"],
+"rows":[
+{"id":"mxb","name":"MX Bikes handling","source":"bike .cfg/.engn from player's MX Bikes folder (mass, power curve, gear ratios, rev limit)","throttle":"W, torque from engn curve","brake":"S","lean":"A/D, lean angle sets turn radius","wheelie":"Shift weight back (Ctrl)","step_up_blocks":0,"crash_on_hard_landing":true,"toggle_key":"H"},
+{"id":"mc","name":"Minecraft handling","source":"top speed and sound from the same bike; arcade steering like a horse","throttle":"W","brake":"S","lean":"cosmetic only","wheelie":"none","step_up_blocks":1,"crash_on_hard_landing":false,"toggle_key":"H"}]}
